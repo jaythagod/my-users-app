@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import Button from './Button';
 import './Card.css';
 
 
@@ -12,7 +13,7 @@ const Card = ({ id,name,uname,website }) =>{
                 <h4>{name}</h4>
                 <p>{`@`+uname}</p>
                 <Link to={`http://`+website}><p>{`http://`+website}</p></Link>
-                <Link to={`/UserDetails/${id}`}><p className='f6 link dim br3 ph3 pv2 mb2 dib white bg-dark-blue'>More Details</p></Link>
+                <Button id={id} />
             </div>
         </div>
     );
