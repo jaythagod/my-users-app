@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './Card.css';
 
 
@@ -10,8 +11,8 @@ const Card = ({ id,name,uname,website }) =>{
             <div>
                 <h2>{name}</h2>
                 <p>{`@`+uname}</p>
-                <p><a href={website}>{`http://`+website}</a></p>
-                <p><a className='f6 link dim br3 ph3 pv2 mb2 dib white bg-dark-blue' href={website}>More Details</a></p>
+                <Link to={`http://`+website}><p>{`http://`+website}</p></Link>
+                <Link to={`/UserDetails/${id}`}><p className='f6 link dim br3 ph3 pv2 mb2 dib white bg-dark-blue'>More Details</p></Link>
             </div>
         </div>
     );
