@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import CardList from '../components/CardList';
+import UserDetails from './UserDetails';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 
 
@@ -26,9 +28,14 @@ class App extends Component{
     const myUsers = this.state.allusers;
 
     return (
-      <div className="tc">
-        <CardList userinfo={ myUsers }/>
-      </div>
+      <Router>
+        <div className="tc">
+          <Switch>
+            <Route path="/" exact render={(props)=>(<CardList userinfo={ myUsers }/>)}/>
+            <Route path="/UserDetails/:id" render={()=> <UserDetails/>} />
+          </Switch>
+        </div>
+      </Router>
     );
   } 
 }
