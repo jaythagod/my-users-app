@@ -25,7 +25,7 @@ const UserDetails = () =>{
             <div>
                 <Link to="/">Home</Link>
                 <h1>User Details</h1>
-                <div className='tl dib br3 pa3 ma2 bw2 shadow-5 w-25'>
+                <div className='tl dib br3 pa3 ma2 bw2 shadow-5 w-40 bg-white'>
                     <ul className="dashed">
                         <li>name: {userInfo.name}</li>
                         <li>username: {userInfo.username}</li>
