@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 const CardDetails = ({name, uname, website}) =>{
 
@@ -7,7 +6,7 @@ const CardDetails = ({name, uname, website}) =>{
         <div>
             <h4>{name}</h4>
             <p>{`@`+uname}</p>
-            <Link to={`http://`+website}><p>{`http://`+website}</p></Link>
+            <a href={`http://`+website} target="_blank" rel="noreferrer noopener"><p>{`http://`+website}</p></a>
         </div>
     );
 
