@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import {Link, useParams} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
+import UserCard from '../components/UserCard';
+import Header from '../components/Header';
 import './App.css';
-import './UserDetails.css';
 
 
 const UserDetails = () =>{
-
+        const pageName = "User Details";
         const {id} = useParams();
         const [userInfo, setUserInfo] = useState({company:{}, address:{}});
 
@@ -23,25 +24,8 @@ const UserDetails = () =>{
         return(
             
             <div>
-                <Link to="/">Home</Link>
-                <h1>User Details</h1>
-                <div className='tl dib br3 pa3 ma2 bw2 shadow-5 w-40 bg-white'>
-                    <ul className="dashed">
-                        <li>name: {userInfo.name}</li>
-                        <li>username: {userInfo.username}</li>
-                        <li>email: {userInfo.email}</li>
-                        <li>phone: {userInfo.phone}</li>
-                        <li>company: {userInfo.company.name}</li>
-                        <li>website: {userInfo.website}</li>
-                        <li>address:<br/>
-                            <ul className="dashed">
-                                <li>street: {userInfo.address.street}</li>
-                                <li>suite: {userInfo.address.suite}</li>
-                                <li>city: {userInfo.address.city}</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                <Header pagename={pageName}/>
+                <UserCard userInfo={userInfo}/>
             </div>
         );    
 }
