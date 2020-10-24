@@ -10,9 +10,13 @@ const App = ()=>{
 
   useEffect(() =>{
     const fetchAllUsers = async () =>{
-        const response = await fetch('https://jsonplaceholder.typicode.com/users');
-        const resJson = await response.json();
-        loadAllUsers(resJson);
+        try{
+          const response = await fetch('https://jsonplaceholder.typicode.com/users');
+          const resJson = await response.json();
+          loadAllUsers(resJson);
+        }catch(err){
+          console.log("Api call failed: ",err);
+        }
     }
 
     fetchAllUsers();
