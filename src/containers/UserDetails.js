@@ -12,9 +12,14 @@ const UserDetails = () =>{
 
         useEffect(() =>{
             const fetchUser = async () =>{
-                const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
-                const resJson = await response.json();
-                setUserInfo(resJson);
+                try{
+                    const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
+                    const resJson = await response.json();
+                    setUserInfo(resJson);
+                }catch(err){
+                    setUserInfo({apiError:"Ooops, Something went wrong!!", company:{}, address:{}});
+                    console.log("Debug Error: ", err);
+                }
             }
 
             fetchUser();
